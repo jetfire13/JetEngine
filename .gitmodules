@@ -1,0 +1,3 @@
+[submodule "JetEngine/vendor/spdlog"]
+	path = JetEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog

@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\JetEngine\Log.h" />
     <ClInclude Include="src\JetEngine.h" />
     <ClInclude Include="src\JetEngine\Application.h" />
     <ClInclude Include="src\JetEngine\Core.h" />
     <ClInclude Include="src\JetEngine\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\JetEngine\Log.cpp" />
     <ClCompile Include="src\JetEngine\Application.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -69,6 +71,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>JE_PLATFORM_WINDOWS;JE_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\JetEngine\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,6 +87,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>JE_PLATFORM_WINDOWS;JE_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\JetEngine\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -2,8 +2,8 @@
 
 // For use by Hazel applications
 
-#include <stdio.h>
 #include "JetEngine/Application.h"
+#include "JetEngine/Log.h"
 
 // ---Entry Point-----------------
 #include "JetEngine/EntryPoint.h"
