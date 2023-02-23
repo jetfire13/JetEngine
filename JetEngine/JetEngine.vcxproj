@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>JE_PLATFORM_WINDOWS;JE_BUILD_DLL;JE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;$(ProjectDir)\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -147,6 +147,10 @@
     <ClInclude Include="src\JetEngine\Application.h" />
     <ClInclude Include="src\JetEngine\Core.h" />
     <ClInclude Include="src\JetEngine\EntryPoint.h" />
+    <ClInclude Include="src\JetEngine\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\JetEngine\Events\Event.h" />
+    <ClInclude Include="src\JetEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\JetEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\JetEngine\Log.h" />
   </ItemGroup>
   <ItemGroup>

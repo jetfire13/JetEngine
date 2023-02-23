@@ -19,6 +19,10 @@
     <ClInclude Include="src\JetEngine\Log.h">
       <Filter>JetEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\JetEngine\Events\Event.h" />
+    <ClInclude Include="src\JetEngine\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\JetEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\JetEngine\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JetEngine\Application.cpp">
