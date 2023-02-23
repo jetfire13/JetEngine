@@ -18,6 +18,9 @@ project "JetEngine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	
+	pchheader "JEpch.h"
+	pchsource "JetEngine/src/JEpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

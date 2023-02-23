@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace JetEngine {
 
 	class JETENGINE_API MouseMovedEvent : public Event

@@ -1,8 +1,6 @@
 #pragma once
 
 #include "JetEngine/Core.h"
-#include <string>
-#include <functional>
 
 namespace JetEngine {
 
