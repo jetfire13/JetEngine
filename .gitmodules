@@ -1,3 +1,6 @@
 [submodule "JetEngine/vendor/spdlog"]
 	path = JetEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "JetEngine/vendor/glfw"]
+	path = JetEngine/vendor/glfw
+	url = https://github.com/jetfire13/glfw.git

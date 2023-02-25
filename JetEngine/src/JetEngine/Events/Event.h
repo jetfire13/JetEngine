@@ -1,5 +1,6 @@
 #pragma once
 
+#include "JEpch.h"
 #include "JetEngine/Core.h"
 
 namespace JetEngine {

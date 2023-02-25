@@ -7,6 +7,12 @@
     <Filter Include="JetEngine\Events">
       <UniqueIdentifier>{62362A56-4E2F-49A8-7761-2E2D63B928B4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\JEpch.h" />
@@ -35,6 +41,12 @@
     <ClInclude Include="src\JetEngine\Log.h">
       <Filter>JetEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\JetEngine\Window.h">
+      <Filter>JetEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\JEpch.cpp" />
@@ -43,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="src\JetEngine\Log.cpp">
       <Filter>JetEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
