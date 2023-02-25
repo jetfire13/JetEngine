@@ -91,5 +91,5 @@ namespace JetEngine {
 		}
 
 		EVENT_CLASS_TYPE(MouseButtonReleasedEvent)
-	}
+	};
 }
