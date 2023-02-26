@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "JetEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "JetEngine/vendor/Glad/include"
 
 include "JetEngine/vendor/GLFW"
+include "JetEngine/vendor/Glad"
 
 project "JetEngine"
 	location "JetEngine"
@@ -37,12 +39,14 @@ project "JetEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 	
 	links 
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 	
@@ -54,7 +58,8 @@ project "JetEngine"
 		defines
 		{
 			"JE_PLATFORM_WINDOWS",
-			"JE_BUILD_DLL"
+			"JE_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 		
 		postbuildcommands
