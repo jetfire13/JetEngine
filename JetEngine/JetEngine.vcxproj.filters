@@ -38,6 +38,12 @@
     <ClInclude Include="src\JetEngine\Events\MouseEvent.h">
       <Filter>JetEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\JetEngine\Layer.h">
+      <Filter>JetEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JetEngine\LayerStack.h">
+      <Filter>JetEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\JetEngine\Log.h">
       <Filter>JetEngine</Filter>
     </ClInclude>
@@ -51,6 +57,12 @@
   <ItemGroup>
     <ClCompile Include="src\JEpch.cpp" />
     <ClCompile Include="src\JetEngine\Application.cpp">
+      <Filter>JetEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JetEngine\Layer.cpp">
+      <Filter>JetEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\JetEngine\LayerStack.cpp">
       <Filter>JetEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\JetEngine\Log.cpp">
