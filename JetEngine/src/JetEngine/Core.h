@@ -10,7 +10,11 @@
 	#error JetEngine only support Windows!
 #endif
 
-#ifdef HZ_ENABLE_ASSERTS
+#ifdef JE_DEBUG
+	#define JE_ENABLE_ASSERTS
+#endif
+
+#ifdef JE_ENABLE_ASSERTS
 	#define JE_ASSERT(x, ...) { if(!(x)) { JE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define JE_CORE_ASSERT(x, ...) { if(!(x)) { JE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #else
