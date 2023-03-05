@@ -7,8 +7,14 @@
     <Filter Include="JetEngine\Events">
       <UniqueIdentifier>{62362A56-4E2F-49A8-7761-2E2D63B928B4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JetEngine\ImGui">
+      <UniqueIdentifier>{E8A7F65F-5433-6424-5D44-E718C94EC024}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -38,6 +44,9 @@
     <ClInclude Include="src\JetEngine\Events\MouseEvent.h">
       <Filter>JetEngine\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\JetEngine\ImGui\ImGuiLayer.h">
+      <Filter>JetEngine\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\JetEngine\Layer.h">
       <Filter>JetEngine</Filter>
     </ClInclude>
@@ -50,6 +59,9 @@
     <ClInclude Include="src\JetEngine\Window.h">
       <Filter>JetEngine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -59,6 +71,9 @@
     <ClCompile Include="src\JetEngine\Application.cpp">
       <Filter>JetEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\JetEngine\ImGui\ImGuiLayer.cpp">
+      <Filter>JetEngine\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\JetEngine\Layer.cpp">
       <Filter>JetEngine</Filter>
     </ClCompile>
@@ -67,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="src\JetEngine\Log.cpp">
       <Filter>JetEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

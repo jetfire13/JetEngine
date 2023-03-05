@@ -4,3 +4,6 @@
 [submodule "JetEngine/vendor/glfw"]
 	path = JetEngine/vendor/glfw
 	url = https://github.com/jetfire13/glfw.git
+[submodule "JetEngine/vendor/imgui"]
+	path = JetEngine/vendor/imgui
+	url = https://github.com/jetfire13/imgui.git

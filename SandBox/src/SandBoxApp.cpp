@@ -23,7 +23,8 @@ class SandBox : public JetEngine::Application
 public:
 	SandBox()
 	{
-		PushLayer(new ExampleLayer);
+		PushLayer(new ExampleLayer());
+		PushOverlay(new JetEngine::ImGuiLayer());
 	}
 
 	~SandBox()
