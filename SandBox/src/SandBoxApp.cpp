@@ -6,6 +6,7 @@ public:
 	ExampleLayer()
 		: Layer("Example")
 	{
+		
 	}
 
 	void OnUpdate() override
@@ -16,7 +17,7 @@ public:
 
 	void OnEvent(JetEngine::Event& event) override
 	{
-		if (event.GetEventType() == JetEngine::EventType::KeyPressed)
+		if (event.GetEventType() == JetEngine::EventType::KeyPressed) 
 		{
 			JetEngine::KeyPressedEvent& e = (JetEngine::KeyPressedEvent&)event;
 			JE_TRACE("{0}", char(e.GetKeyCode()));
