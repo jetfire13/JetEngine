@@ -159,11 +159,13 @@
     <ClInclude Include="src\JetEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\JetEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\JetEngine\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\JetEngine\Input.h" />
     <ClInclude Include="src\JetEngine\Layer.h" />
     <ClInclude Include="src\JetEngine\LayerStack.h" />
     <ClInclude Include="src\JetEngine\Log.h" />
     <ClInclude Include="src\JetEngine\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +178,7 @@
     <ClCompile Include="src\JetEngine\LayerStack.cpp" />
     <ClCompile Include="src\JetEngine\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
