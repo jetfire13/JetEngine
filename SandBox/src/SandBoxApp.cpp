@@ -10,12 +10,17 @@ public:
 
 	void OnUpdate() override
 	{
-		JE_INFO("ExampleLayer::Update");
+		if (JetEngine::Input::IsKeyPressed(JE_KEY_TAB))
+			JE_TRACE("Tab key is pressed!");
 	}
 
 	void OnEvent(JetEngine::Event& event) override
 	{
-		JE_TRACE("{0}", event);
+		if (event.GetEventType() == JetEngine::EventType::KeyPressed)
+		{
+			JetEngine::KeyPressedEvent& e = (JetEngine::KeyPressedEvent&)event;
+			JE_TRACE("{0}", char(e.GetKeyCode()));
+		}
 	}
 };
 class SandBox : public JetEngine::Application
