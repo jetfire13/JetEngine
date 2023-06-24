@@ -1,5 +1,7 @@
 #include "JetEngine.h"
 
+#include "imgui/imgui.h"
+
 
 class ExampleLayer : public JetEngine::Layer {
 public:
@@ -13,6 +15,13 @@ public:
 	{
 		if (JetEngine::Input::IsKeyPressed(JE_KEY_TAB))
 			JE_TRACE("Tab key is pressed!");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello worlds");
+		ImGui::End();
 	}
 
 	void OnEvent(JetEngine::Event& event) override
@@ -30,7 +39,6 @@ public:
 	SandBox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new JetEngine::ImGuiLayer());
 	}
 
 	~SandBox()

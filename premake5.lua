@@ -27,12 +27,19 @@ include "JetEngine/vendor/imgui"
 
 project "JetEngine"
 	location "JetEngine"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "Off"
+	cppdialect "C++17"
+	staticruntime "on"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS",
+		"IMGUI_API=__declspec(dllexport)"
+	}
 	
 	pchheader "JEpch.h"
 	pchsource "JetEngine/src/JEpch.cpp"
@@ -74,34 +81,32 @@ project "JetEngine"
 			"GLFW_INCLUDE_NONE"
 		}
 		
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/SandBox")
-		}
-		
 	filter "configurations:Debug"
 		defines "JE_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 	
 	filter "configurations:Release"
 		defines "JE_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "JE_DIST"
 		runtime "Release"
-		optimize "On"	
+		optimize "on"	
 
 project	"SandBox"
 		location "SandBox"
 		kind "ConsoleApp"
 		language "C++"
-		staticruntime "Off"
+		cppdialect "C++17"
+		staticruntime "on"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+
 	
 	files
 	{
@@ -113,6 +118,7 @@ project	"SandBox"
 	{
 		"JetEngine/vendor/spdlog/include",
 		"JetEngine/src",
+		"JetEngine/vendor",
 		"JetEngine/vendor/glm/glm"
 		
 	}
@@ -122,8 +128,7 @@ project	"SandBox"
 		"JetEngine"
 	}
 	
-	filter "system:windows"		
-		cppdialect "C++17"
+	filter "system:windows"
 		systemversion "latest"
 		
 		defines
@@ -134,14 +139,14 @@ project	"SandBox"
 	filter "configurations:Debug"
 		defines "JE_DEBUG"	
 		runtime "Debug"	
-		symbols "On"
+		symbols "on"
 	
 	filter "configurations:Release"
 		defines "JE_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "JE_DIST"
 		runtime "Release"
-		optimize "On"	
+		optimize "on"	
