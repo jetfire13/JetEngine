@@ -51,7 +51,7 @@ project "JetEngine"
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
-	
+
 	includedirs
 	{
 		"%{prj.name}/src",
@@ -70,8 +70,7 @@ project "JetEngine"
 		"opengl32.lib"
 	}
 	
-	filter "system:windows"		
-		cppdialect "C++17"		
+	filter "system:windows"
 		systemversion "latest"
 		
 		defines

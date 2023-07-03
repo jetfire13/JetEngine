@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef JE_PLATFORM_WINDOWS
+#if JE_DYMANIC_LINK
 	#ifdef JE_BUILD_DLL
 		#define JETENGINE_API __declspec(dllexport)
 	#else 
 		#define JETENGINE_API __declspec(dllimport)
 	#endif
+#else
+	#define JETENGINE_API
+#endif
 #else
 	#error JetEngine only support Windows!
 #endif
