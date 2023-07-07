@@ -1,8 +1,10 @@
 #pragma once
 
 #include "JetEngine/Window.h"
+#include "JetEngine/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
+
 
 namespace JetEngine {
 
@@ -28,6 +30,8 @@ namespace JetEngine {
 		virtual void ShutDown();
 	private:
 		GLFWwindow* m_Window;
+
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

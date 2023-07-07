@@ -22,7 +22,7 @@ namespace JetEngine {
 	};
 
 	//Interface representing a desktop system based window
-	class JETENGINE_API Window
+ 	class JETENGINE_API Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
