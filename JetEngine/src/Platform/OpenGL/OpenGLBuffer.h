@@ -14,7 +14,7 @@ namespace JetEngine {
 		OpenGLVertexBuffer(float* vertices, uint32_t size);
 		virtual ~OpenGLVertexBuffer();
 
-		virtual void bind() const override;
+		virtual void Bind() const override;
 		virtual void Unbind() const override;
 
 		virtual const BufferLayout& GetLayout() const override { return m_Layout; }
@@ -35,7 +35,7 @@ namespace JetEngine {
 		OpenGLIndexBuffer(uint32_t* indices, uint32_t size);
 		virtual ~OpenGLIndexBuffer();
 
-		virtual void bind() const;
+		virtual void Bind() const;
 		virtual void Unbind() const;
 
 		virtual uint32_t GetCount() const { return m_Count; }

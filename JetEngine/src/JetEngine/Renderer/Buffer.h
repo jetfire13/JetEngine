@@ -105,7 +105,7 @@ namespace JetEngine {
 	public:
 		virtual ~VertexBuffer() {}
 
-		virtual void bind() const = 0;
+		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
 		virtual const BufferLayout& GetLayout() const = 0;
@@ -119,7 +119,7 @@ namespace JetEngine {
 	public:
 		virtual ~IndexBuffer() {}
 
-		virtual void bind() const = 0;
+		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
 		virtual uint32_t GetCount() const = 0;
