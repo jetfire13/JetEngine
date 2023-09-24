@@ -17,7 +17,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "JetEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "JetEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "JetEngine/vendor/imgui"
-IncludeDir["glm"] = "JetEngine/vendor/glm"
+IncludeDir["glm"] = "JetEngine/vendor/glm/"
 
 include "JetEngine/vendor/GLFW"
 include "JetEngine/vendor/Glad"
