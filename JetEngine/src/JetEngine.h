@@ -12,6 +12,18 @@
 
 #include "JetEngine/ImGui/ImGuiLayer.h"
 
+// ---Renderer--------------------
+#include "JetEngine/Renderer/Renderer.h"
+#include "JetEngine/Renderer/RenderCommand.h"
+
+#include "JetEngine/Renderer/Buffer.h"
+#include "JetEngine/Renderer/Shader.h"
+#include "JetEngine/Renderer/VertexArray.h"
+
+#include "JetEngine/Renderer/Camera.h"
+//--------------------------------
+
+
 // ---Entry Point-----------------
 #include "JetEngine/EntryPoint.h"
 //--------------------------------

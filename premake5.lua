@@ -19,9 +19,12 @@ IncludeDir["Glad"] = "JetEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "JetEngine/vendor/imgui"
 IncludeDir["glm"] = "JetEngine/vendor/glm/"
 
-include "JetEngine/vendor/GLFW"
-include "JetEngine/vendor/Glad"
-include "JetEngine/vendor/imgui"
+group "Dependencies"
+	include "JetEngine/vendor/GLFW"
+	include "JetEngine/vendor/Glad"
+	include "JetEngine/vendor/imgui"
+
+group ""
 
 
 
@@ -118,7 +121,7 @@ project	"SandBox"
 		"JetEngine/vendor/spdlog/include",
 		"JetEngine/src",
 		"JetEngine/vendor",
-		"JetEngine/vendor/glm/glm"
+		"%{IncludeDir.glm}"
 		
 	}
 	
