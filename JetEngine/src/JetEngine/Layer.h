@@ -2,6 +2,8 @@
 
 #include "JetEngine/Core.h"
 #include "JetEngine/Events/Event.h"
+#include "JetEngine/Core/Timestep.h"
+
 namespace JetEngine {
 	class JETENGINE_API Layer
 	{
@@ -11,7 +13,7 @@ namespace JetEngine {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

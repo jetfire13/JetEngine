@@ -7,14 +7,10 @@
 #include "JetEngine/Events/Event.h"
 #include "JetEngine/Events/ApplicationEvent.h"
 
+#include "JetEngine/Core/Timestep.h"
+
 #include "JetEngine/ImGui/ImGuiLayer.h"
 
-
-#include "JetEngine/Renderer/Buffer.h"
-#include "JetEngine/Renderer/VertexArray.h"
-
-#include "JetEngine/Renderer/Shader.h"
-#include "JetEngine/Renderer/Camera.h"
 
 
 
@@ -36,12 +32,12 @@ namespace JetEngine {
 		inline Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
-
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
+		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
 	};

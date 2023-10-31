@@ -126,22 +126,22 @@ public:
 		
 	}
 
-	void OnUpdate() override
+	void OnUpdate(JetEngine::Timestep ts) override
 	{
 		if (JetEngine::Input::IsKeyPressed(JE_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (JetEngine::Input::IsKeyPressed(JE_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 
 		if (JetEngine::Input::IsKeyPressed(JE_KEY_UP))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		else if (JetEngine::Input::IsKeyPressed(JE_KEY_DOWN))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 
 		if (JetEngine::Input::IsKeyPressed(JE_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * ts;
 		else if (JetEngine::Input::IsKeyPressed(JE_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 		JetEngine::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		JetEngine::RenderCommand::Clear();
@@ -183,10 +183,10 @@ private:
 
 	JetEngine::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 0.05f;
+	float m_CameraMoveSpeed = 3.0f;
 
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 2.0f;
+	float m_CameraRotationSpeed = 90.0f;
 };
 class SandBox : public JetEngine::Application
 {

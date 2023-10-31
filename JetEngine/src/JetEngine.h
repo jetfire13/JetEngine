@@ -6,6 +6,8 @@
 #include "JetEngine/Layer.h"
 #include "JetEngine/Log.h"
 
+#include "JetEngine/Core/Timestep.h"
+
 #include "JetEngine/Input.h"
 #include "JetEngine/MouseButtonCodes.h"
 #include "JetEngine/KeyCodes.h"
