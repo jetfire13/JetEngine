@@ -2,11 +2,12 @@
 
 #include "imgui/imgui.h"
 
+#include <glm/glm/gtc/matrix_transform.hpp>
 
 class ExampleLayer : public JetEngine::Layer {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f), m_SquarePosition(0.0f)
 	{
 		m_VertexArray.reset(JetEngine::VertexArray::Create());
 
@@ -64,6 +65,7 @@ public:
 			layout(location = 1) in vec4 a_Color;
 
 			uniform mat4 u_ViewProjectionMatrix;
+			uniform mat4 u_Transform;
 
 			out vec3 v_Position;
 			out vec4 v_Color;
@@ -72,7 +74,7 @@ public:
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = u_ViewProjectionMatrix * vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjectionMatrix* u_Transform * vec4(a_Position, 1.0);
 			}		
 		)";
 
@@ -101,11 +103,12 @@ public:
 			out vec3 v_Position;
 
 			uniform mat4 u_ViewProjectionMatrix;
+			uniform mat4 u_Transform;
 
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_ViewProjectionMatrix * vec4(a_Position, 1.0);
+				gl_Position = u_ViewProjectionMatrix * u_Transform * vec4(a_Position, 1.0);
 			}		
 		)";
 
@@ -141,7 +144,7 @@ public:
 		if (JetEngine::Input::IsKeyPressed(JE_KEY_A))
 			m_CameraRotation += m_CameraRotationSpeed * ts;
 		else if (JetEngine::Input::IsKeyPressed(JE_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
+			m_CameraRotation -= m_CameraRotationSpeed * ts;		
 
 		JetEngine::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		JetEngine::RenderCommand::Clear();
@@ -151,7 +154,17 @@ public:
 
 		JetEngine::Renderer::BeginScene(m_Camera);
 
-		JetEngine::Renderer::Submit(m_BlueShader, m_SquareVA);
+		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+		
+		for (int j = 0; j < 20; j++)
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				glm::vec3 pos(i * 0.11f, j * 0.11f, 0.0f);
+				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+				JetEngine::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+			}
+		}
 
 		JetEngine::Renderer::Submit(m_Shader, m_VertexArray);
 
@@ -188,6 +201,7 @@ private:
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 90.0f;
 };
+
 class SandBox : public JetEngine::Application
 {
 public:
