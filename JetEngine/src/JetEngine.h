@@ -20,6 +20,7 @@
 
 #include "JetEngine/Renderer/Buffer.h"
 #include "JetEngine/Renderer/Shader.h"
+#include "JetEngine/Renderer/Texture.h"
 #include "JetEngine/Renderer/VertexArray.h"
 
 #include "JetEngine/Renderer/Camera.h"

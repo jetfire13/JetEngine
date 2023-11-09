@@ -18,6 +18,7 @@ IncludeDir["GLFW"] = "JetEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "JetEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "JetEngine/vendor/imgui"
 IncludeDir["glm"] = "JetEngine/vendor/glm/"
+IncludeDir["stb_image"] = "JetEngine/vendor/stb_image/"
 
 group "Dependencies"
 	include "JetEngine/vendor/GLFW"
@@ -51,6 +52,8 @@ project "JetEngine"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",			
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
@@ -62,7 +65,8 @@ project "JetEngine"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 	
 	links 
