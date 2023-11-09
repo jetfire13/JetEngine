@@ -22,7 +22,7 @@ public:
 		};
 
 
-		std::shared_ptr<JetEngine::VertexBuffer> vertexBuffer;
+		JetEngine::Ref<JetEngine::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(JetEngine::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		JetEngine::BufferLayout layout = {
@@ -34,7 +34,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<JetEngine::IndexBuffer> indexBuffer;
+		JetEngine::Ref<JetEngine::IndexBuffer> indexBuffer;
 		indexBuffer.reset(JetEngine::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -47,7 +47,7 @@ public:
 			 -0.5f, 0.5f, 0.0f
 		};
 
-		std::shared_ptr<JetEngine::VertexBuffer> squareVB;
+		JetEngine::Ref<JetEngine::VertexBuffer> squareVB;
 		squareVB.reset(JetEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		JetEngine::BufferLayout squareVBlayout = {
 			{ JetEngine::ShaderDataType::Float3, "a_Position" }
@@ -58,7 +58,7 @@ public:
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 
-		std::shared_ptr<JetEngine::IndexBuffer> squareIB;
+		JetEngine::Ref<JetEngine::IndexBuffer> squareIB;
 		squareIB.reset(JetEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -200,11 +200,11 @@ public:
 	}
 	
 private:
-	std::shared_ptr<JetEngine::Shader> m_Shader;
-	std::shared_ptr<JetEngine::VertexArray> m_VertexArray;
+	JetEngine::Ref<JetEngine::Shader> m_Shader;
+	JetEngine::Ref<JetEngine::VertexArray> m_VertexArray;
 
-	std::shared_ptr<JetEngine::Shader> m_FlatColorShader;
-	std::shared_ptr<JetEngine::VertexArray> m_SquareVA;
+	JetEngine::Ref<JetEngine::Shader> m_FlatColorShader;
+	JetEngine::Ref<JetEngine::VertexArray> m_SquareVA;
 
 	JetEngine::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
