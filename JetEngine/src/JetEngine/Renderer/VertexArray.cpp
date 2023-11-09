@@ -7,12 +7,12 @@
 
 namespace JetEngine {
 
-	VertexArray* VertexArray::Create()
+	Ref<VertexArray> VertexArray::Create()
 	{
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:		JE_CORE_ASSERT(false, "RenderereAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::API::OpenGL:	return new OpenGLVertexArray();
+		case RendererAPI::API::OpenGL:		return std::make_shared<OpenGLVertexArray>();
 		}
 
 		JE_CORE_ASSERT(false, "Unknown RendererAPI!");

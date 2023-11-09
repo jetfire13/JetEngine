@@ -13,7 +13,7 @@ public:
 	ExampleLayer()
 		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
 	{
-		m_VertexArray.reset(JetEngine::VertexArray::Create());
+		m_VertexArray = JetEngine::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -23,7 +23,7 @@ public:
 
 
 		JetEngine::Ref<JetEngine::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(JetEngine::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = JetEngine::VertexBuffer::Create(vertices, sizeof(vertices));
 
 		JetEngine::BufferLayout layout = {
 			{ JetEngine::ShaderDataType::Float3, "a_Position" },
@@ -35,10 +35,10 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		JetEngine::Ref<JetEngine::IndexBuffer> indexBuffer;
-		indexBuffer.reset(JetEngine::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = JetEngine::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(JetEngine::VertexArray::Create());
+		m_SquareVA = JetEngine::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -48,7 +48,7 @@ public:
 		};
 
 		JetEngine::Ref<JetEngine::VertexBuffer> squareVB;
-		squareVB.reset(JetEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		squareVB = JetEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 		JetEngine::BufferLayout squareVBlayout = {
 			{ JetEngine::ShaderDataType::Float3, "a_Position" },
 			{ JetEngine::ShaderDataType::Float2, "a_TexCoord" }
@@ -59,7 +59,7 @@ public:
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 
 		JetEngine::Ref<JetEngine::IndexBuffer> squareIB;
-		squareIB.reset(JetEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = JetEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
@@ -97,7 +97,7 @@ public:
 			}		
 		)";
 
-		m_Shader.reset(JetEngine::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = JetEngine::Shader::Create(vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -131,7 +131,7 @@ public:
 			}		
 		)";
 
-		m_FlatColorShader.reset(JetEngine::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = JetEngine::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
 		std::string textureShaderVertexSrc = R"(
 			#version 330 core
@@ -166,7 +166,7 @@ public:
 			}		
 		)";
 
-		m_TextureShader.reset(JetEngine::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+		m_TextureShader = JetEngine::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc);
 		
 		m_Texture = JetEngine::Texture2D::Create("assets/textures/Checkerboard.png");
 		
