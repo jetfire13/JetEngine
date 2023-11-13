@@ -11,7 +11,7 @@
 class ExampleLayer : public JetEngine::Layer {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
 		m_VertexArray = JetEngine::VertexArray::Create();
 
@@ -143,29 +143,15 @@ public:
 	}
 
 	void OnUpdate(JetEngine::Timestep ts) override
-	{
-		if (JetEngine::Input::IsKeyPressed(JE_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (JetEngine::Input::IsKeyPressed(JE_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+	{		
+		// Update
+		m_CameraController.OnUpdate(ts);
 
-		if (JetEngine::Input::IsKeyPressed(JE_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (JetEngine::Input::IsKeyPressed(JE_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (JetEngine::Input::IsKeyPressed(JE_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		else if (JetEngine::Input::IsKeyPressed(JE_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;		
-
+		// Render
 		JetEngine::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		JetEngine::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		JetEngine::Renderer::BeginScene(m_Camera);
+		JetEngine::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 		
@@ -192,7 +178,7 @@ public:
 
 		// Triangle
 		// JetEngine::Renderer::Submit(m_Shader, m_VertexArray);
-
+ 
 		JetEngine::Renderer::EndScene();
 	}
 
@@ -203,9 +189,11 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(JetEngine::Event& event) override
+	void OnEvent(JetEngine::Event& e) override
 	{
-		JetEngine::EventDispatcher dispatcher(event);
+		m_CameraController.OnEvent(e);
+
+		JetEngine::EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<JetEngine::KeyPressedEvent>(JE_BIND_EVENT_FN(ExampleLayer::OnKeyPressedEvent));
 	}
 
@@ -225,12 +213,8 @@ private:
 
 	JetEngine::Ref<JetEngine::Texture2D> m_Texture, m_TextureLogo;
 
-	JetEngine::OrthographicCamera m_Camera;
+	JetEngine::OrthographicCameraController m_CameraController;
 	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 3.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 90.0f;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

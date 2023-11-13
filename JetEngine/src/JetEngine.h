@@ -9,8 +9,9 @@
 #include "JetEngine/Core/Timestep.h"
 
 #include "JetEngine/Input.h"
-#include "JetEngine/MouseButtonCodes.h"
 #include "JetEngine/KeyCodes.h"
+#include "JetEngine/MouseButtonCodes.h"
+#include "JetEngine/OrthographicCameraController.h"
 
 #include "JetEngine/ImGui/ImGuiLayer.h"
 
@@ -23,7 +24,7 @@
 #include "JetEngine/Renderer/Texture.h"
 #include "JetEngine/Renderer/VertexArray.h"
 
-#include "JetEngine/Renderer/Camera.h"
+#include "JetEngine/Renderer/OrthographicCamera.h"
 //--------------------------------
 
 
