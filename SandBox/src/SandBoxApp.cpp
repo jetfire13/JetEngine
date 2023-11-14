@@ -192,9 +192,6 @@ public:
 	void OnEvent(JetEngine::Event& e) override
 	{
 		m_CameraController.OnEvent(e);
-
-		JetEngine::EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<JetEngine::KeyPressedEvent>(JE_BIND_EVENT_FN(ExampleLayer::OnKeyPressedEvent));
 	}
 
 	//Example
