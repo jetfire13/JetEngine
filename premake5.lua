@@ -82,7 +82,6 @@ project "JetEngine"
 		
 		defines
 		{
-			"JE_PLATFORM_WINDOWS",
 			"JE_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
 		}
@@ -136,11 +135,6 @@ project	"SandBox"
 	
 	filter "system:windows"
 		systemversion "latest"
-		
-		defines
-		{
-			"JE_PLATFORM_WINDOWS"
-		}
 		
 	filter "configurations:Debug"
 		defines "JE_DEBUG"	
