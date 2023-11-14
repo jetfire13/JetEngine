@@ -1,9 +1,11 @@
 [submodule "JetEngine/vendor/spdlog"]
 	path = JetEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+	branch = v1.x
 [submodule "JetEngine/vendor/glfw"]
 	path = JetEngine/vendor/glfw
 	url = https://github.com/jetfire13/glfw.git
+	branch = master
 [submodule "JetEngine/vendor/imgui"]
 	path = JetEngine/vendor/imgui
 	url = https://github.com/jetfire13/imgui.git
@@ -11,3 +13,4 @@
 [submodule "JetEngine/vendor/glm/glm"]
 	path = JetEngine/vendor/glm/glm
 	url = https://github.com/g-truc/glm.git	
+	branch = master
