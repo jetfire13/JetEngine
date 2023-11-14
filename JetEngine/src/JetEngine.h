@@ -17,6 +17,7 @@
 
 // ---Renderer--------------------
 #include "JetEngine/Renderer/Renderer.h"
+#include "JetEngine/Renderer/Renderer2D.h"
 #include "JetEngine/Renderer/RenderCommand.h"
 
 #include "JetEngine/Renderer/Buffer.h"
@@ -25,9 +26,4 @@
 #include "JetEngine/Renderer/VertexArray.h"
 
 #include "JetEngine/Renderer/OrthographicCamera.h"
-//--------------------------------
-
-
-// ---Entry Point-----------------
-#include "JetEngine/Core/EntryPoint.h"
 //--------------------------------

@@ -1,4 +1,5 @@
-#include "JetEngine.h"
+#include <JetEngine.h>
+#include <JetEngine/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -6,6 +7,8 @@
 
 #include <glm/glm/gtc/matrix_transform.hpp>
 #include <glm/glm/gtc/type_ptr.hpp>
+
+#include "Sandbox2D.h"
 
 
 class ExampleLayer : public JetEngine::Layer {
@@ -221,7 +224,8 @@ class SandBox : public JetEngine::Application
 public:
 	SandBox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~SandBox()
