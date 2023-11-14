@@ -12,7 +12,7 @@ namespace JetEngine {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:		JE_CORE_ASSERT(false, "RenderereAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::API::OpenGL:		return  std::make_shared<OpenGLShader>(filepath);
+		case RendererAPI::API::OpenGL:		return  CreateRef<OpenGLShader>(filepath);
 		}
 
 		JE_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -24,7 +24,7 @@ namespace JetEngine {
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::API::None:		JE_CORE_ASSERT(false, "RenderereAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::API::OpenGL:		return  std::make_shared<OpenGLShader>(name, vertexSrc, fragmentSrc);
+		case RendererAPI::API::OpenGL:		return  CreateRef<OpenGLShader>(name, vertexSrc, fragmentSrc);
 		}
 
 		JE_CORE_ASSERT(false, "Unknown RendererAPI!");

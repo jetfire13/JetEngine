@@ -10,7 +10,7 @@ namespace JetEngine {
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:		JE_CORE_ASSERT(false, "RenderereAPI::None is currently not supported"); return nullptr;
-			case RendererAPI::API::OpenGL:		return std::make_shared<OpenGLTexture2D>(path);
+			case RendererAPI::API::OpenGL:		return CreateRef<OpenGLTexture2D>(path);
 		}
 
 		JE_CORE_ASSERT(false, "Unknown RendererAPI!");
