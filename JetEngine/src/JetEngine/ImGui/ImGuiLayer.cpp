@@ -7,7 +7,7 @@
 
 
 
-#include "JetEngine/Application.h"
+#include "JetEngine/Core/Application.h"
 
 // TEMPORARY
 #include <GLFW/glfw3.h>

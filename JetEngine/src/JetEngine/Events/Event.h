@@ -1,7 +1,7 @@
 #pragma once
 
 #include "JEpch.h"
-#include "JetEngine/Core.h"
+#include "JetEngine/Core/Core.h"
 
 namespace JetEngine {
 

@@ -1,8 +1,8 @@
 #include "JEpch.h"
 #include "OrthographicCameraController.h"
 
-#include "JetEngine/Input.h"
-#include "JetEngine/KeyCodes.h"
+#include "JetEngine/Core/Input.h"
+#include "JetEngine/Core/KeyCodes.h"
 
 namespace JetEngine {
 

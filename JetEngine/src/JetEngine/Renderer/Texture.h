@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "JetEngine/Core.h"
+#include "JetEngine/Core/Core.h"
 
 namespace JetEngine {
 

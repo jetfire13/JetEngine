@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "JetEngine/Log.h"
+#include "JetEngine/Core/Log.h"
 
 
 #ifdef JE_PLATFORM_WINDOWS

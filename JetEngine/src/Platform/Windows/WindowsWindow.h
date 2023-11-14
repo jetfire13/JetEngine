@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JetEngine/Window.h"
+#include "JetEngine/Core/Window.h"
 #include "JetEngine/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

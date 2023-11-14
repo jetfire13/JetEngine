@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JetEngine/Input.h"
+#include "JetEngine/Core/Input.h"
 
 namespace JetEngine {
 

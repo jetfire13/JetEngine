@@ -2,16 +2,16 @@
 
 // For use by Hazel applications
 
-#include "JetEngine/Application.h"
-#include "JetEngine/Layer.h"
-#include "JetEngine/Log.h"
+#include "JetEngine/Core/Application.h"
+#include "JetEngine/Core/Layer.h"
+#include "JetEngine/Core/Log.h"
 
 #include "JetEngine/Core/Timestep.h"
 
-#include "JetEngine/Input.h"
-#include "JetEngine/KeyCodes.h"
-#include "JetEngine/MouseButtonCodes.h"
-#include "JetEngine/OrthographicCameraController.h"
+#include "JetEngine/Core/Input.h"
+#include "JetEngine/Core/KeyCodes.h"
+#include "JetEngine/Core/MouseButtonCodes.h"
+#include "JetEngine/Renderer/OrthographicCameraController.h"
 
 #include "JetEngine/ImGui/ImGuiLayer.h"
 
@@ -29,5 +29,5 @@
 
 
 // ---Entry Point-----------------
-#include "JetEngine/EntryPoint.h"
+#include "JetEngine/Core/EntryPoint.h"
 //--------------------------------

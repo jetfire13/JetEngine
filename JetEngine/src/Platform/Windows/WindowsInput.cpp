@@ -1,7 +1,7 @@
 #include "JEpch.h"
 #include "WindowsInput.h"
 
-#include "JetEngine/Application.h"
+#include "JetEngine/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace JetEngine {

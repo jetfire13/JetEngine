@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JetEngine/Core.h"
+#include "JetEngine/Core/Core.h"
 #include "JetEngine/Events/Event.h"
 #include "JetEngine/Core/Timestep.h"
 
