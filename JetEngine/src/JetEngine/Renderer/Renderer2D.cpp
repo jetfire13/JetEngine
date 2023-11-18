@@ -15,6 +15,7 @@ namespace JetEngine {
 	{
 		Ref<VertexArray> QuadVertexArray;
 		Ref<Shader> FlatColorShader;
+		Ref<Shader> TextureShader;
 	};
 
 	static Renderer2DStorage* s_Data;
@@ -25,11 +26,11 @@ namespace JetEngine {
 
 		s_Data->QuadVertexArray = VertexArray::Create();
 
-		float squareVertices[3 * 4] = {
-			 -0.5f, -0.5f, 0.0f,
-			  0.5f, -0.5f, 0.0f,
-			  0.5f,  0.5f, 0.0f,
-			 -0.5f,  0.5f, 0.0f
+		float squareVertices[5 * 4] = {
+			 -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			  0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			  0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			 -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
 		Ref<VertexBuffer> squareVB;
@@ -37,6 +38,7 @@ namespace JetEngine {
 
 		squareVB->SetLayout({
 			{ ShaderDataType::Float3, "a_Position" },
+			{ ShaderDataType::Float2, "a_TexCoord" }
 		});
 		s_Data->QuadVertexArray->AddVertexBuffer(squareVB);
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
@@ -47,7 +49,9 @@ namespace JetEngine {
 
 
 		s_Data->FlatColorShader = Shader::Create("assets/shaders/FlatColor.glsl");
-
+		s_Data->TextureShader = Shader::Create("assets/shaders/Texture.glsl");
+		s_Data->TextureShader->Bind();
+		s_Data->TextureShader->SetInt("u_Texture", 0);
 	}
 	void Renderer2D::Shutdown()
 	{
@@ -59,6 +63,8 @@ namespace JetEngine {
 		s_Data->FlatColorShader->Bind();
 		s_Data->FlatColorShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 		
+		s_Data->TextureShader->Bind();
+		s_Data->TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
@@ -83,4 +89,22 @@ namespace JetEngine {
 		s_Data->QuadVertexArray->Bind();
 		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
 	}
+
+	void Renderer2D::DrawQuad(const glm::vec2& position, float rotation, const glm::vec2& size, const Ref<Texture2D>& texture)
+	{
+		DrawQuad({ position.x, position.y, 0.0f }, rotation, size, texture);
+	}
+	void Renderer2D::DrawQuad(const glm::vec3& position, float rotation, const glm::vec2& size, const Ref<Texture2D>& texture)
+	{
+		s_Data->TextureShader->Bind();
+
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0, 0, 1)) * glm::scale(glm::mat4(1.0f), { size.x, size.y, 0.0f });
+		s_Data->TextureShader->SetMat4("u_Transform", transform);
+
+		texture->Bind();
+
+		s_Data->QuadVertexArray->Bind();
+		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);
+	}
+
 }
