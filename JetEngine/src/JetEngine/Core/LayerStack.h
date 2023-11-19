@@ -5,7 +5,7 @@
 
 namespace JetEngine {
 
-	class JETENGINE_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

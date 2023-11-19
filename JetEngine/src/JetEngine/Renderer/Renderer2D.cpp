@@ -33,8 +33,8 @@ namespace JetEngine {
 			 -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		Ref<VertexBuffer> squareVB;
-		squareVB = VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+		
+		Ref<VertexBuffer> squareVB = VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
 		squareVB->SetLayout({
 			{ ShaderDataType::Float3, "a_Position" },
@@ -42,9 +42,8 @@ namespace JetEngine {
 		});
 		s_Data->QuadVertexArray->AddVertexBuffer(squareVB);
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-
-		Ref<IndexBuffer> squareIB;
-		squareIB = IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+		
+		Ref<IndexBuffer> squareIB = IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		s_Data->QuadVertexArray->SetIndexBuffer(squareIB);
 
 		s_Data->WhiteTexture = Texture2D::Create(1, 1);
@@ -56,6 +55,7 @@ namespace JetEngine {
 		s_Data->TextureShader->Bind();
 		s_Data->TextureShader->SetInt("u_Texture", 0);
 	}
+
 	void Renderer2D::Shutdown()
 	{
 		delete s_Data;

@@ -16,7 +16,7 @@
 
 namespace JetEngine {
 
-	class JETENGINE_API Application
+	class Application
 	{
 	public:
 		Application();

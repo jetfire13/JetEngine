@@ -44,22 +44,6 @@
 #endif // End of platform detection
 
 
-// DLL support
-#ifdef JE_PLATFORM_WINDOWS
-	#if JE_DYNAMIC_LINK
-		#ifdef JE_BUILD_DLL
-			#define JETENGINE_API __declspec(dllexport)
-		#else
-			#define JETENGINE_API __declspec(dllimport)
-		#endif
-	#else
-		#define JETENGINE_API
-	#endif
-#else
-	#error JetEngine only supports Windows!
-#endif // End of DLL support
-
-
 #ifdef JE_DEBUG
 	#define JE_ENABLE_ASSERTS
 #endif

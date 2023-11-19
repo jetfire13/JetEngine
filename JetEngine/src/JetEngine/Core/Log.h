@@ -6,7 +6,7 @@
 
 namespace JetEngine {
 
-	class JETENGINE_API Log
+	class Log
 	{
 	public:
 		static void Init();

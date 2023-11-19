@@ -5,7 +5,7 @@
 #include "JetEngine/Core/Timestep.h"
 
 namespace JetEngine {
-	class JETENGINE_API Layer
+	class Layer
 	{
 	public:
 		Layer(const std::string& name = "Layer");
