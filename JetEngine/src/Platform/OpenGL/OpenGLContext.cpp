@@ -15,6 +15,8 @@ namespace JetEngine {
 
 	void OpenGLContext::Init()
 	{
+		JE_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		JE_CORE_ASSERT(status, "Failed to initialize Glad!");
@@ -36,6 +38,8 @@ namespace JetEngine {
 
 	void OpenGLContext::SwapBuffers()
 	{
+		JE_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 

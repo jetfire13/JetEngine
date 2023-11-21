@@ -23,6 +23,8 @@ namespace JetEngine {
 
 	OpenGLShader::OpenGLShader(const std::string& filepath)
 	{
+		JE_PROFILE_FUNCTION();
+
 		std::string source = ReadFile(filepath);
 		auto shaderSources = PreProcess(source);
 		Compile(shaderSources);
@@ -38,6 +40,8 @@ namespace JetEngine {
 	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 		: m_Name(name)
 	{
+		JE_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> sources;
 		sources[GL_VERTEX_SHADER] = vertexSrc;
 		sources[GL_FRAGMENT_SHADER] = fragmentSrc;
@@ -51,6 +55,8 @@ namespace JetEngine {
 
 	std::string OpenGLShader::ReadFile(const std::string& filepath)
 	{
+		JE_PROFILE_FUNCTION();
+
 		std::string result;
 		std::ifstream in(filepath, std::ios::in | std::ios::binary);
 		if (in)
@@ -79,6 +85,8 @@ namespace JetEngine {
 
 	std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string source)
 	{
+		JE_PROFILE_FUNCTION();
+
 		std::unordered_map<GLenum, std::string> shaderSources;
 
 		const char* typeToken = "#type";
@@ -106,6 +114,8 @@ namespace JetEngine {
 
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
+		JE_PROFILE_FUNCTION();
+
 		GLuint program = glCreateProgram();
 		JE_CORE_ASSERT(shaderSources.size() <= 2, "We only support 2 shaders for now");
 		std::array<GLenum, 2> glShaderIDs;
@@ -185,31 +195,43 @@ namespace JetEngine {
 
 	void OpenGLShader::Bind() const
 	{
+		JE_PROFILE_FUNCTION();
+
 		glUseProgram(m_RendererID);
 	}
 
 	void OpenGLShader::Unbind() const
 	{
+		JE_PROFILE_FUNCTION();
+
 		glUseProgram(0);
 	}
 
 	void OpenGLShader::SetInt(const std::string& name, int value)
 	{
+		JE_PROFILE_FUNCTION();
+
 		UploadUniformInt(name, value);
 	}
 
 	void OpenGLShader::SetFloat3(const std::string& name, const glm::vec3& values)
 	{
+		JE_PROFILE_FUNCTION();
+
 		UploadUniformFloat3(name, values);
 	}
 
 	void OpenGLShader::SetFloat4(const std::string& name, const glm::vec4& values)
 	{
+		JE_PROFILE_FUNCTION();
+
 		UploadUniformFloat4(name, values);
 	}
 
 	void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& matrix)
 	{
+		JE_PROFILE_FUNCTION();
+
 		UploadUniformMat4(name, matrix);
 	}
 

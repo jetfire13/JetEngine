@@ -19,6 +19,8 @@ namespace JetEngine {
 
 	Application::Application()		
 	{
+		JE_PROFILE_FUNCTION();
+
 		JE_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 
@@ -34,23 +36,31 @@ namespace JetEngine {
 
 	Application::~Application()
 	{
+		JE_PROFILE_FUNCTION();
+
 		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
 	{
+		JE_PROFILE_FUNCTION();
+
 		m_LayerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
+		JE_PROFILE_FUNCTION();
+
 		m_LayerStack.PushOverlay(layer);
 		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
 	{
+		JE_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(JE_BIND_EVENT_FN(Application::OnWindowClose));
 		dispatcher.Dispatch<WindowResizeEvent>(JE_BIND_EVENT_FN(Application::OnWindowResize));
@@ -65,22 +75,35 @@ namespace JetEngine {
 
 	void Application::Run()
 	{
+		JE_PROFILE_FUNCTION();
+
 		while (m_Running) 
 		{
+			JE_PROFILE_SCOPE("RunLoop");
+
 			float time = (float)glfwGetTime(); // !TODO Platform::GetTime()
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minimized)
 			{
-				for (Layer* layer : m_LayerStack)
-					layer->OnUpdate(timestep);
+				{
+					JE_PROFILE_SCOPE("LayerStack Updates");
+					
+					for (Layer* layer : m_LayerStack)
+							layer->OnUpdate(timestep);
+				}
+
+				m_ImGuiLayer->Begin();
+				{
+					JE_PROFILE_SCOPE("LayerStack OnImGuiRender");
+					
+					for (Layer* layer : m_LayerStack)
+						layer->OnImGuiRender();		
+				}
+				m_ImGuiLayer->End();
 			}
 
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
 			
 
 			m_Window->OnUpdate();
@@ -95,6 +118,8 @@ namespace JetEngine {
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		JE_PROFILE_FUNCTION();
+
 		if (e.GetWidth() == 0 || e.GetHeight() == 0)
 		{
 			m_Minimized = true;

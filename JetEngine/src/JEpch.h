@@ -16,6 +16,8 @@
 
 #include "JetEngine/Core/Log.h"
 
+#include "JetEngine/Debug/Instrumentator.h"
+
 
 #ifdef JE_PLATFORM_WINDOWS
 	#include <Windows.h>

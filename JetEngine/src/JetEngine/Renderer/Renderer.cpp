@@ -10,6 +10,8 @@ namespace JetEngine {
 
 	void Renderer::Init()
 	{
+		JE_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}
