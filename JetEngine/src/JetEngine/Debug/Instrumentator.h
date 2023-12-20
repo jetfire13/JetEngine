@@ -122,7 +122,7 @@ namespace JetEngine {
 	};
 }
 
-#define JE_PROFILE 1
+#define JE_PROFILE 0
 #if JE_PROFILE
 	#define JE_PROFILE_BEGIN_SESSION(name, filepath) ::JetEngine::Instrumentor::Get().BeginSession(name, filepath)
 	#define JE_PROFILE_END_SESSION() ::JetEngine::Instrumentor::Get().EndSession()

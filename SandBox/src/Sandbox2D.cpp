@@ -15,6 +15,7 @@ Sandbox2D::Sandbox2D()
 void Sandbox2D::OnAttach()
 {
 	m_CheckerpoardTexture = JetEngine::Texture2D::Create("assets/textures/Checkerboard.png");
+	m_LogoTexture = JetEngine::Texture2D::Create("assets/textures/SomeLogo.png");
 }
 
 void Sandbox2D::OnDetach()
@@ -41,8 +42,10 @@ void Sandbox2D::OnUpdate(JetEngine::Timestep ts)
 
 		//JetEngine::Renderer2D::DrawRotatedQuad({ -0.8f, 0.3f }, { 0.8f, 0.8f }, glm::radians(45.0f), {0.3f, 0.2f, 0.8f, 1.0f});
 		JetEngine::Renderer2D::DrawQuad({ 0.7f, -0.2f }, { 0.5f, 0.75f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-		JetEngine::Renderer2D::DrawQuad({ -0.2f, 0.0f, -0.1f }, { 0.75f, 0.5f }, { 0.3f, 0.1f, 0.7f, 1.0f });
-		//JetEngine::Renderer2D::DrawQuad({ 0.1f, 0.0f, -0.1f }, { 10.5f, 10.5f }, m_CheckerpoardTexture, 5.0f, {0.2, 0.8, 0.5f, 1.0f});
+		JetEngine::Renderer2D::DrawQuad({ -0.2f, 0.0f, 0.1f }, { 0.75f, 0.5f }, { 0.3f, 0.1f, 0.7f, 1.0f });
+
+		JetEngine::Renderer2D::DrawQuad({ -5.0f, -5.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerpoardTexture, 5.0f, {0.2, 0.8, 0.5f, 1.0f});
+		JetEngine::Renderer2D::DrawQuad({ -0.5f, -0.5f, 0.0f }, { 1.0f, 1.0f }, m_LogoTexture, 1.0f, { 0.2, 0.8, 0.5f, 1.0f });
 		//JetEngine::Renderer2D::DrawRotatedQuad({ 0.1f, 0.0f, -0.1f }, { 10.5f, 10.5f }, glm::radians(45.0f), m_CheckerpoardTexture, 5.0f, { 0.5, 0.5, 0.0f, 1.0f });
 
 		JetEngine::Renderer2D::EndScene();
