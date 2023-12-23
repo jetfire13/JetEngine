@@ -37,16 +37,20 @@ void Sandbox2D::OnUpdate(JetEngine::Timestep ts)
 	}
 
 	{
+
+		static float roration = 0.0f;
+		roration += ts * 50.0f;
+
 		JE_PROFILE_SCOPE("Renderer Draw");
 		JetEngine::Renderer2D::BeginScene(m_CameraController.GetCamera());
 
-		//JetEngine::Renderer2D::DrawRotatedQuad({ -0.8f, 0.3f }, { 0.8f, 0.8f }, glm::radians(45.0f), {0.3f, 0.2f, 0.8f, 1.0f});
+		JetEngine::Renderer2D::DrawRotatedQuad({ 1.8f, 0.3f }, { 0.8f, 0.8f }, 45.0f, {0.3f, 0.2f, 0.8f, 1.0f});
 		JetEngine::Renderer2D::DrawQuad({ 0.7f, -0.2f }, { 0.5f, 0.75f }, { 0.8f, 0.2f, 0.3f, 1.0f });
 		JetEngine::Renderer2D::DrawQuad({ -0.2f, 0.0f, 0.1f }, { 0.75f, 0.5f }, { 0.3f, 0.1f, 0.7f, 1.0f });
 
-		JetEngine::Renderer2D::DrawQuad({ -5.0f, -5.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerpoardTexture, 5.0f, {0.2, 0.8, 0.5f, 1.0f});
+		JetEngine::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerpoardTexture, 5.0f, {0.2, 0.8, 0.5f, 1.0f});
 		JetEngine::Renderer2D::DrawQuad({ -0.5f, -0.5f, 0.0f }, { 1.0f, 1.0f }, m_LogoTexture, 1.0f, { 0.2, 0.8, 0.5f, 1.0f });
-		//JetEngine::Renderer2D::DrawRotatedQuad({ 0.1f, 0.0f, -0.1f }, { 10.5f, 10.5f }, glm::radians(45.0f), m_CheckerpoardTexture, 5.0f, { 0.5, 0.5, 0.0f, 1.0f });
+		JetEngine::Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.1f }, { 2.5f, 2.5f }, roration, m_CheckerpoardTexture, 5.0f, { 0.5, 0.5, 0.0f, 1.0f });
 
 		JetEngine::Renderer2D::EndScene();
 	}
