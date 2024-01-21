@@ -5,11 +5,11 @@
 [submodule "JetEngine/vendor/glfw"]
 	path = JetEngine/vendor/glfw
 	url = https://github.com/jetfire13/glfw.git
-	branch = master
+	branch = linux-test
 [submodule "JetEngine/vendor/imgui"]
 	path = JetEngine/vendor/imgui
 	url = https://github.com/jetfire13/imgui.git
-	branch = docking
+	branch = linux-test
 [submodule "JetEngine/vendor/glm/glm"]
 	path = JetEngine/vendor/glm/glm
 	url = https://github.com/g-truc/glm.git	
