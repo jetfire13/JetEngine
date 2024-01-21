@@ -51,20 +51,20 @@ public:
 		};
 
 		
-		JetEngine::Ref<JetEngine::VertexBuffer> quadVB = JetEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+		JetEngine::Ref<JetEngine::VertexBuffer> squareVB = JetEngine::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
-		JetEngine::BufferLayout quadVBlayout = {
+		JetEngine::BufferLayout squareVBlayout = {
 			{ JetEngine::ShaderDataType::Float3, "a_Position" },
 			{ JetEngine::ShaderDataType::Float2, "a_TexCoord" }
 		};
 
-		quadVB->SetLayout(quadVBlayout);
-		m_SquareVA->AddVertexBuffer(quadVB);
+		squareVB->SetLayout(squareVBlayout);
+		m_SquareVA->AddVertexBuffer(squareVB);
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 
-		JetEngine::Ref<JetEngine::IndexBuffer> quadIB = JetEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+		JetEngine::Ref<JetEngine::IndexBuffer> squareIB = JetEngine::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 
-		m_SquareVA->SetIndexBuffer(quadIB);
+		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
 			#version 330 core
