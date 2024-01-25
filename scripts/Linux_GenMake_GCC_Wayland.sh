@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ..
+cmake . -DGLFW_BUILD_WAYLAND=1 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 
