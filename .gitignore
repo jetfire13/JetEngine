@@ -2,6 +2,10 @@
 **/bin/
 !vendor/bin/premake/
 bin-int/
+*.obj
+*.exe
+*.pdb
+**/*.dir/
 
 # Visual Studio files and folder
 .vs/
@@ -28,3 +32,8 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+# ninja files
+/build.ninja
+.ninja_deps
+.ninja_log
