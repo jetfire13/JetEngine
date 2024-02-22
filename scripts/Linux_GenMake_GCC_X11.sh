@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ..
+cmake -DCMAKE_BUILD_TYPE=DEBUG . -DCMAKE_EXPORT_COMPILE_COMMANDS=1
